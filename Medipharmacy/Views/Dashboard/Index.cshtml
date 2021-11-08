@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="row justify-content-between mb-4">
+    <div class="col-4">
+        <h2>Products</h2>
+    </div>
+    <div class="col-6 col-4">
+        <div class="input-group">
+            <input id="search" class="form-control" placeholder="Search" />
+            <button type="button" onclick="Search()" class="btn border"><i class="far fa-search" style="color: mediumpurple;"></i></button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @for (int i = 0; i < 20; i++)
+    {
+        <div class="col mb-4" style="min-width: 200px; max-width: 440px; width: inherit;">
+            <div class="card bg-light justify-content-center shadow" style="border: 1px solid blue">
+
+                <img src="~/img/logo.svg" class="card-img-top" alt="" />
+
+                <div class="card-body py-1">
+
+                    <div class="row">
+                        <h6 class="text-center bg-info pb-1 mb-1 rounded">Product @(i + 1)</h6>
+                    </div>
+
+                    <div class="row rounded mb-1" style="background-color: lightgray;">
+                        <div class="col px-1" style="padding-right: 0; margin-right: 0;"><strong>R @((19.99 + i * 5.13).ToString("0.00"))</strong></div>
+                        <!--<div class="col-1 mx-1 text-danger" style="padding-left: 0; margin-left: 0;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="out of stock"><i class="fas fa-times"></i></div>-->
+                        <div class="col-1 mx-1 text-success" style="padding-left: 0; margin-left: 0;"data-bs-toggle="tooltip" data-bs-placement="bottom" title="in stock"><i class="fas fa-check"></i></div>
+                    </div>
+
+                    <div class="row">
+                        <a class="btn btn-sm w-100 mb-0" href="#" style="background-image: repeating-linear-gradient(to bottom right, lightblue, greenyellow)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="add product to cart"><i class="fas fa-plus" style="color: blue"></i> <strong>Add</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
